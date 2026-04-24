@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} { 
+      allow read, write: if false; 
+    }
+
+    match /bot_memory/{documentId} {
+      allow read, write: if documentId == 'win_history_v2' || documentId == 'model_ensemble_weights' || documentId == 'synaptic_model';
+    }
+
+    match /bot_config/{documentId} {
+      allow read, write: if documentId == 'admin_settings';
+    }
+  }
+}

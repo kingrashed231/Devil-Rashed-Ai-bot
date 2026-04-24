@@ -1,0 +1,23 @@
+{
+  "entities": {
+    "BotMemory": {
+      "title": "Bot Memory",
+      "description": "Stores history and dynamic weights for the bot",
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array"
+        },
+        "m1": { "type": "number" },
+        "m2": { "type": "number" },
+        "m3": { "type": "number" }
+      }
+    }
+  },
+  "firestore": {
+    "/bot_memory/{documentId}": {
+      "schema": { "$ref": "#/entities/BotMemory" },
+      "description": "Bot memories including history and weights"
+    }
+  }
+}
